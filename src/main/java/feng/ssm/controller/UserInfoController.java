@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import feng.ssm.domain.UserInfo;
 import feng.ssm.service.IUserInfoService;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -19,13 +20,14 @@ public class UserInfoController {
 
     /**
      * 登录功能
+     *
      * @param username
      * @param password
      * @return
      * @throws Exception
      */
     @RequestMapping("/login.do")
-    public ModelAndView login(String username, String password, HttpServletRequest request, HttpServletResponse response)throws Exception{
+    public ModelAndView login(String username, String password, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         String checkcode = request.getParameter("checkcode");
         ModelAndView mv = new ModelAndView();
@@ -35,16 +37,21 @@ public class UserInfoController {
         if (!checkcode_server.equalsIgnoreCase(checkcode)) {
             //验证码不正确
             //提示信息
-            mv.addObject("msg","验证码错误");
+            mv.addObject("msg", "验证码错误");
             mv.setViewName("login");
-        }else {
+        } else {
             UserInfo userInfo = userInfoService.findByName(username);
-            String password1 = userInfo.getPassword();
-            if (userInfo != null && password.equals(password1)){
-                session.setAttribute("userInfo",userInfo);
-                mv.setViewName("main");
-            }else {
-                mv.addObject("msg","用户名或密码错误");
+            if (userInfo != null) {
+                String password1 = userInfo.getPassword();
+                if (password.equals(password1)) {
+                    session.setAttribute("userInfo", userInfo);
+                    mv.setViewName("main");
+                }else {
+                    mv.addObject("msg", "用户名或密码错误");
+                    mv.setViewName("login");
+                }
+            } else {
+                mv.addObject("msg", "用户名或密码错误");
                 mv.setViewName("login");
             }
         }
@@ -53,6 +60,7 @@ public class UserInfoController {
 
     /**
      * 注册管理员账号
+     *
      * @param userInfo
      * @return
      * @throws Exception
@@ -84,7 +92,7 @@ public class UserInfoController {
             return "login";
         } else {
             //如果不存在 提示密码不正确
-            session.setAttribute("result","原密码不正确");
+            session.setAttribute("result", "原密码不正确");
         }
         return "updatePassword";
     }
