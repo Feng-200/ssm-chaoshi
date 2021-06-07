@@ -55,7 +55,7 @@
 <body class="hold-transition login-page BG">
 <div class="login-box">
     <div class="login-logo">
-        <a><b style="color: #3c8dbc">商场商品</b>后台管理系统</a>
+        <a><b style="color: #3c8dbc">商场信息</b>后台管理系统</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">

@@ -21,7 +21,7 @@ public class CategoryController {
     private ICategoryService categoryService;
 
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "7") Integer size) throws Exception{
+    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "5") Integer size) throws Exception{
         ModelAndView mv = new ModelAndView();
         List<Category> list = categoryService.findAll(page,size);
         PageInfo pageInfo = new PageInfo(list);
@@ -31,7 +31,7 @@ public class CategoryController {
     }
 
     @RequestMapping("/findBycatName")
-    public ModelAndView findByName(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "7") Integer size, HttpServletRequest request) throws Exception{
+    public ModelAndView findByName(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "5") Integer size, HttpServletRequest request) throws Exception{
         ModelAndView mv = new ModelAndView();
         String name = request.getParameter("name");
         List<Category> list = categoryService.findByName(page,size,name);

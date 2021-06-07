@@ -31,7 +31,7 @@ public class ProductsController {
      * @throws Exception
      */
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "7") Integer size) throws Exception{
+    public ModelAndView findAll(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "5") Integer size) throws Exception{
         ModelAndView mv = new ModelAndView();
         List<Products> list = productsService.findAll(page,size);
         PageInfo pageInfo = new PageInfo(list);
@@ -41,7 +41,7 @@ public class ProductsController {
     }
 
     @RequestMapping("/findByName")
-    public ModelAndView findByName(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "7") Integer size,HttpServletRequest request) throws Exception{
+    public ModelAndView findByName(@RequestParam(name = "page",required = true,defaultValue = "1") Integer page, @RequestParam(name = "size",required = true,defaultValue = "5") Integer size,HttpServletRequest request) throws Exception{
         ModelAndView mv = new ModelAndView();
         String name = request.getParameter("name");
         List<Products> list = productsService.findByName(page,size,name);
@@ -68,8 +68,7 @@ public class ProductsController {
 
     @RequestMapping("/save.do")
     public String save(Products products, HttpServletRequest request) throws Exception {
-        Category category = new Category();
-        products.setCategory(category);
+
         productsService.save(products);
         return "redirect:findAll.do";
     }

@@ -104,7 +104,7 @@
                         </div>
                         <div class="col-md-2 title rowHeight">手机号</div>
                         <div class="col-md data rowHeight">
-                            <input type="text" class="form-control" name="phoneNum">
+                            <input type="text" class="form-control" name="phoneNume">
                         </div>
                     </div>
                 </div>
@@ -114,6 +114,7 @@
                     <button type="button" class="btn bg-default"
                             onclick="history.back(-1);">返回</button>
                 </div>
+                <div class="text-center" style="color: #ff0000">${cuowu}</div>
                 <!--工具栏/--> </section>
             <!-- 正文区域 /-->
         </form>

@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -77,7 +77,7 @@
         <!-- 内容头部 -->
         <section class="content-header">
             <h1>
-                修改密码 <small>表单</small>
+                修改账户信息 <small>表单</small>
             </h1>
         </section>
         <!-- 内容头部 /-->
@@ -88,9 +88,24 @@
             <section class="content"> <!--产品信息-->
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">密码信息</div>
+                    <div class="panel-heading">
+                        账户信息
+                    </div>
+
                     <div class="row data-type">
 
+                        <div class="col-md-2 title">账号</div>
+                        <div class="col-md data">
+                            <input type="text" class="form-control" name="newUsername">
+                        </div>
+                        <div class="col-md-2 title">姓名</div>
+                        <div class="col-md data">
+                            <input type="text" class="form-control" name="newPeopleName">
+                        </div>
+                        <div class="col-md-2 title">手机号</div>
+                        <div class="col-md data">
+                            <input type="text" class="form-control" name="newPhoneNume">
+                        </div>
                         <div class="col-md-2 title">原密码</div>
                         <div class="col-md data">
                             <input type="text" class="form-control" name="password">
@@ -107,9 +122,11 @@
                 <div class="box-tools text-center">
                     <button type="submit" class="btn bg-maroon">保存</button>
                     <button type="button" class="btn bg-default"
-                            onclick="history.back(-1);">返回</button>
+                            onclick="history.back(-1);">返回
+                    </button>
                 </div>
-                <!--工具栏/--> </section>
+                <!--工具栏/-->
+            </section>
             <!-- 正文区域 /-->
         </form>
     </div>
@@ -209,13 +226,13 @@
         src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         // 选择框
         $(".select2").select2();
 
         // WYSIHTML5编辑器
         $(".textarea").wysihtml5({
-            locale : 'zh-CN'
+            locale: 'zh-CN'
         });
     });
 
@@ -228,9 +245,9 @@
         }
     }
 
-        $('select').change(function(){
-            $("#departmentId").val($('select').val());
-        });
+    $('select').change(function () {
+        $("#departmentId").val($('select').val());
+    });
 
 
 </script>

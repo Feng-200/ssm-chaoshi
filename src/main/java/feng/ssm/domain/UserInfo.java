@@ -9,7 +9,7 @@ public class UserInfo {
     private String username;
     private String password;
     private String peopleName;
-    private String phoneNum;
+    private String phoneNume;
 
     public int getId() {
         return id;
@@ -43,12 +43,12 @@ public class UserInfo {
         this.peopleName = peopleName;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
+    public String getPhoneNume() {
+        return phoneNume;
     }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
+    public void setPhoneNume(String phoneNume) {
+        this.phoneNume = phoneNume;
     }
 
     @Override
@@ -58,7 +58,8 @@ public class UserInfo {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", peopleName='" + peopleName + '\'' +
-                ", phoneNum='" + phoneNum + '\'' +
+                ", phoneNume='" + phoneNume + '\'' +
                 '}';
     }
 }
+

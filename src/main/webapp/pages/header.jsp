@@ -6,7 +6,7 @@
 	<!-- Logo -->
 	<a href="${pageContext.request.contextPath}/pages/main.jsp" class="logo" style="background-color: #3c8dbc"> <!-- mini logo for sidebar mini 50x50 pixels -->
 		<span class="logo-mini"><b></b></span> <!-- logo for regular state and mobile devices -->
-		<span class="logo-lg"><b></b>商场商品后台管理</span>
+		<span class="logo-lg"><b></b>商场信息后台管理</span>
 	</a>
 	<!-- Header Navbar: style can be found in header.less -->
 	<nav class="navbar navbar-static-top" style="background-color: #3c8dbc">
@@ -49,7 +49,7 @@
 								<a href="${pageContext.request.contextPath}/pages/register.jsp" class="btn btn-default btn-flat">注册账号</a>
 							</div>
 							<div class="fa-pull-left col-md-2">
-								<a href="${pageContext.request.contextPath}/pages/updatePassword.jsp" class="btn btn-default btn-flat">修改密码</a>
+								<a href="${pageContext.request.contextPath}/pages/updatePassword.jsp" class="btn btn-default btn-flat">修改信息</a>
 							</div>
 							<div class="pull-right">
 								<a href="${pageContext.request.contextPath}/pages/login.jsp" class="btn btn-default btn-flat">注销</a>

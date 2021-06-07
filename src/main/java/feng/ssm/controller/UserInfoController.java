@@ -46,7 +46,7 @@ public class UserInfoController {
                 if (password.equals(password1)) {
                     session.setAttribute("userInfo", userInfo);
                     mv.setViewName("main");
-                }else {
+                } else {
                     mv.addObject("msg", "用户名或密码错误");
                     mv.setViewName("login");
                 }
@@ -68,8 +68,17 @@ public class UserInfoController {
     @RequestMapping("/save.do")
     public ModelAndView save(UserInfo userInfo) throws Exception {
         ModelAndView mv = new ModelAndView();
-        userInfoService.save(userInfo);
-        mv.setViewName("main");
+        UserInfo info = userInfoService.findByName(userInfo.getUsername());
+        System.out.println(info);
+        if (info==null){
+            userInfoService.save(userInfo);
+            mv.setViewName("main");
+        }else {
+            mv.addObject("cuowu", "管理员已存在！");
+            mv.setViewName("register");
+        }
+        /*userInfoService.save(userInfo);
+        mv.setViewName("main");*/
         return mv;
     }
 
@@ -79,16 +88,22 @@ public class UserInfoController {
         //获取session
         HttpSession session = request.getSession();
         UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
-        String username = userInfo.getUsername();
         String oldPassword = userInfo.getPassword();
+
         //获取用户输入的原密码
         String password = request.getParameter("password");
         //用户输入的新密码
         String newPassword = request.getParameter("newPassword");
+        String newUsername = request.getParameter("newUsername");
+        String newPeopleName = request.getParameter("newPeopleName");
+        String newPhoneNume = request.getParameter("newPhoneNume");
         if (password.equals(oldPassword)) {
+            userInfo.setUsername(newUsername);
             userInfo.setPassword(newPassword);
+            userInfo.setPeopleName(newPeopleName);
+            userInfo.setPhoneNume(newPhoneNume);
             //如果输入原密码正确就修改密码
-            userInfoService.updatePassWord(userInfo);
+            userInfoService.update(userInfo);
             return "login";
         } else {
             //如果不存在 提示密码不正确
