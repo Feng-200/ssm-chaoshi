@@ -16,6 +16,26 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`ssm_chaoshi2` /*!40100 DEFAULT CHARACTE
 
 USE `ssm_chaoshi2`;
 
+/*Table structure for table `bumen` */
+
+DROP TABLE IF EXISTS `bumen`;
+
+CREATE TABLE `bumen` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `bumenName` varchar(20) DEFAULT NULL,
+  `bumenDesc` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*Data for the table `bumen` */
+
+insert  into `bumen`(`id`,`bumenName`,`bumenDesc`) values 
+(1,'123','123'),
+(2,'1231','132'),
+(3,'3333','3333'),
+(4,'4444','4444'),
+(5,'5555','5555');
+
 /*Table structure for table `category` */
 
 DROP TABLE IF EXISTS `category`;
@@ -29,11 +49,15 @@ CREATE TABLE `category` (
 
 /*Data for the table `category` */
 
-/*Table structure for table `product` */
+insert  into `category`(`id`,`catName`,`catDesc`) values 
+(1,'酒','好喝'),
+(2,'水果','好吃');
 
-DROP TABLE IF EXISTS `product`;
+/*Table structure for table `products` */
 
-CREATE TABLE `product` (
+DROP TABLE IF EXISTS `products`;
+
+CREATE TABLE `products` (
   `id` int DEFAULT NULL,
   `name` varchar(50) DEFAULT NULL,
   `price` double DEFAULT NULL,
@@ -41,25 +65,45 @@ CREATE TABLE `product` (
   `productDesc` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-/*Data for the table `product` */
+/*Data for the table `products` */
+
+insert  into `products`(`id`,`name`,`price`,`categoryId`,`productDesc`) values 
+(1,'茅台',12,1,'36000'),
+(3,'香蕉',1.2,2,'123');
 
 /*Table structure for table `users` */
 
 DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `peopleName` varchar(50) DEFAULT NULL,
   `phoneNume` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`username`,`password`,`peopleName`,`phoneNume`) values 
-(1,'haha','123456','李相合','1318924552');
+(1,'hehe','123456','程冰心','123456787911'),
+(2,'123','123','123','123');
+
+/*Table structure for table `yuangong` */
+
+DROP TABLE IF EXISTS `yuangong`;
+
+CREATE TABLE `yuangong` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `bumenId` int DEFAULT NULL,
+  `gongzi` double DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+/*Data for the table `yuangong` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
