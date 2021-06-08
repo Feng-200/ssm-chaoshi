@@ -30,11 +30,10 @@ CREATE TABLE `bumen` (
 /*Data for the table `bumen` */
 
 insert  into `bumen`(`id`,`bumenName`,`bumenDesc`) values 
-(1,'123','123'),
-(2,'1231','132'),
-(3,'3333','3333'),
-(4,'4444','4444'),
-(5,'5555','5555');
+(1,'收银员','收钱'),
+(2,'送货员','专职送货'),
+(3,'搬运工','负责搬运商品'),
+(4,'导购','负责帮助顾客寻找商品');
 
 /*Table structure for table `category` */
 
@@ -51,7 +50,9 @@ CREATE TABLE `category` (
 
 insert  into `category`(`id`,`catName`,`catDesc`) values 
 (1,'酒','好喝'),
-(2,'水果','好吃');
+(2,'水果','好吃'),
+(3,'家电','新品上市'),
+(4,'咸菜','腌制食品');
 
 /*Table structure for table `products` */
 
@@ -69,7 +70,11 @@ CREATE TABLE `products` (
 
 insert  into `products`(`id`,`name`,`price`,`categoryId`,`productDesc`) values 
 (1,'茅台',12,1,'36000'),
-(3,'香蕉',1.2,2,'123');
+(3,'香蕉',1.2,2,'123'),
+(3,'冰箱',2000,3,'最新产品'),
+(4,'空调',1500,3,'耗能低'),
+(5,'海带',1.2,4,'风味食品'),
+(6,'五粮液',500,1,'酱香型');
 
 /*Table structure for table `users` */
 
@@ -101,9 +106,14 @@ CREATE TABLE `yuangong` (
   `bumenId` int DEFAULT NULL,
   `gongzi` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 /*Data for the table `yuangong` */
+
+insert  into `yuangong`(`id`,`name`,`phone`,`bumenId`,`gongzi`) values 
+(1,'李四','1318924552',1,2000),
+(2,'张三','2277194602',2,3500),
+(3,'李雷','18730278812',2,4000);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
